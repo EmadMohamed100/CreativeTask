@@ -1,7 +1,5 @@
 package com.virtualblock.virtuwallet.utilities
 
-import android.content.Context
-import android.widget.Toast
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -16,18 +14,6 @@ import androidx.lifecycle.ViewModelProviders
  * Contact: m.fathy@rytalo.com
  * by Rytalo.
  */
-fun Context.toast(msg: String?) {
-    msg?.let {
-        Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-    }
-}
-
-fun Context.toastLong(msg: String?) {
-    msg?.let {
-        Toast.makeText(this, it, Toast.LENGTH_LONG).show()
-    }
-}
-
 fun AppCompatActivity.showFragment(
     fragment: Fragment?, @IdRes container: Int, replace: Boolean
 ): Fragment? {

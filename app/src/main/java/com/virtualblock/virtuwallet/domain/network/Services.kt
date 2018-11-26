@@ -3,7 +3,7 @@ package com.virtualblock.virtuwallet.domain.network
 import android.content.Context
 import com.google.gson.Gson
 import com.virtualblock.virtuwallet.domain.network.api.BaseApi
-import com.virtualblock.virtuwallet.utilities.Utils
+import com.virtualblock.virtuwallet.utilities.isNetworkAvailable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -33,7 +33,7 @@ class Services @Inject constructor(
     }
 
     private val isConnected: Boolean
-        get() = Utils.isNetworkAvailable(context)
+        get() = context.isNetworkAvailable()
 
     fun setResponseListener(responseReceived: OnResponseReceived? = null) {
         validator.setResponseListener(responseReceived)
