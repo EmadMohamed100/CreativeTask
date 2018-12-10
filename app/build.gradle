@@ -4,51 +4,58 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
-    implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constarintLayoutVersion"
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifeCycleVersion"
-    implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
-    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttpVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttpVersion"
-    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitRxAdapter"
-    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
-    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
-    implementation "com.jakewharton.rxbinding2:rxbinding:$rootProject.ext.rxBindingVersion"
-    implementation "com.google.dagger:dagger:$rootProject.ext.dagger2Version"
-    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger2Version"
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
+  implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
+  implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constarintLayoutVersion"
+  implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifeCycleVersion"
+  implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
+  implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+  implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+  implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttpVersion"
+  implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttpVersion"
+  implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+  implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+  implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitRxAdapter"
+  implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+  implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+  implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+  implementation "com.jakewharton.rxbinding2:rxbinding:$rootProject.ext.rxBindingVersion"
+  implementation "com.github.tbruyelle:rxpermissions:$rootProject.ext.rxPermissionsVersion"
+  implementation "com.afollestad.material-dialogs:core:$rootProject.ext.materialDialogsVersion"
+  implementation "com.afollestad.material-dialogs:input:$rootProject.ext.materialDialogsVersion"
+  implementation "com.google.dagger:dagger:$rootProject.ext.dagger2Version"
+  kapt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger2Version"
 
-    // Testing
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "androidx.test:runner:$rootProject.ext.testRunnerVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+  // Testing
+  testImplementation "junit:junit:$rootProject.ext.junitVersion"
+  androidTestImplementation "androidx.test:runner:$rootProject.ext.testRunnerVersion"
+  androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    defaultConfig {
-        applicationId "com.virtualblock.virtuwallet"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  defaultConfig {
+    applicationId "com.virtualblock.virtuwallet"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+    buildConfigField 'String', 'BASE_URL', '"http://www.test.com"'
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  dataBinding {
+    enabled true
+  }
 }
 

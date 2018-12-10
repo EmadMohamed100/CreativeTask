@@ -22,42 +22,42 @@ class Services @Inject constructor(
     private val validator: Validator
 ) {
 
-    fun example(username: String, password: String) {
-        if (isConnected) {
-            val disposable = api.loginExample(username, password)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::validateResponse, this::onFail)
-            disposables.add(disposable)
-        }
+  fun example(username: String, password: String) {
+    if (isConnected) {
+      val disposable = api.loginExample(username, password)
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(this::validateResponse, this::onFail)
+      disposables.add(disposable)
     }
+  }
 
-    private val isConnected: Boolean
-        get() = context.isNetworkAvailable()
+  private val isConnected: Boolean
+    get() = context.isNetworkAvailable()
 
-    fun setResponseListener(responseReceived: OnResponseReceived? = null) {
-        validator.setResponseListener(responseReceived)
-    }
+  fun setResponseListener(responseReceived: OnResponseReceived? = null) {
+    validator.setResponseListener(responseReceived)
+  }
 
-    private fun validateResponse(response: Response<*>?) {
-        validator.validateResponse(response)
-    }
+  private fun validateResponse(response: Response<*>?) {
+    validator.validateResponse(response)
+  }
 
-    private fun onFail(t: Throwable) {
-        validateResponse(null)
-        Timber.e(t)
-    }
+  private fun onFail(t: Throwable) {
+    validateResponse(null)
+    Timber.e(t)
+  }
+
+  /**
+   * Interface to pass service response when arrived.
+   */
+  interface OnResponseReceived {
 
     /**
-     * Interface to pass service response when arrived.
+     * Pass model filled with data from the service
+     *
+     * @param model serialized [Gson] model filled with data
      */
-    interface OnResponseReceived {
-
-        /**
-         * Pass model filled with data from the service
-         *
-         * @param model serialized [Gson] model filled with data
-         */
-        fun onResponse(model: Any)
-    }
+    fun onResponse(model: Any)
+  }
 }

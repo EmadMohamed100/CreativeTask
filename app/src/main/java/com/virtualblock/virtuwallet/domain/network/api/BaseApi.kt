@@ -13,10 +13,10 @@ import retrofit2.http.Query
  */
 interface BaseApi {
 
-    @GET(Urls.ENDPOINTS.EXAMPLE)
-    fun loginExample(
-        @Query("username") username: String,
-        @Query("password") password: String
-    ): Observable<Response<Any /* Response serialized model instead of Any */>>
+  @GET(Urls.ENDPOINTS.EXAMPLE)
+  fun loginExample(
+    @Query("username") username: String,
+    @Query("password") password: String
+  ): Observable<Response<Any /* Response serialized model instead of Any */>>
 
 }

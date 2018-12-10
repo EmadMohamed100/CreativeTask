@@ -7,9 +7,9 @@ package com.virtualblock.virtuwallet.domain.network
  */
 object Urls {
 
-    const val BASE_URL: String = "http://www.test.com/"
+  const val BASE_URL: String = "http://www.test.com/"
 
-    object ENDPOINTS {
-        const val EXAMPLE = "example"
-    }
+  object ENDPOINTS {
+    const val EXAMPLE = "example"
+  }
 }
