@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_cornered_gray_dialog"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/arrow_iv"
+        android:layout_width="36dp"
+        android:layout_height="11dp"
+        android:src="@drawable/ic_arrow_down"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@null"/>
+    <TextView
+        android:id="@+id/terms_label_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center|start"
+        android:text="@string/terms_conditions_label"
+        android:textSize="17sp"
+        android:fontFamily="@font/open_sans_semi_bold"
+        android:textColor="@color/darkjunglegreen"
+        app:layout_constraintTop_toBottomOf="@+id/arrow_iv"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/terms_conditions_msg_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/open_sans_regular"
+        android:gravity="start"
+        android:scrollbars="vertical"
+        android:text="@string/terms_conditions_msg"
+        android:ellipsize="end"
+        android:textSize="13sp"
+        android:textColor="@color/darkjunglegreen"
+        app:layout_constraintTop_toBottomOf="@+id/terms_label_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/accept_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="@color/md_white"
+        android:textAllCaps="false"
+        android:text="@string/signup_accept_terms"
+        android:textSize="16sp"
+        android:fontFamily="@font/open_sans_regular"
+        app:cornerRadius="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/terms_conditions_msg_tv"
+        app:layout_constraintBottom_toTopOf="@+id/terms_read_later_tv"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="30dp"
+
+        app:layout_constraintHorizontal_bias="0.5" app:layout_constraintVertical_chainStyle="packed"/>
+    <TextView
+        android:id="@+id/terms_read_later_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/sign_up_accept_later"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans_regular"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/darkjunglegreen"
+        android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accept_bt" app:layout_constraintHorizontal_bias="0.5"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

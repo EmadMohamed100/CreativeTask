@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.homescreen.HomeActivity">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/card_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="15dp"
+                android:contentDescription="@null"
+                android:padding="5dp"
+                android:src="@drawable/my_list_help_accepted_back"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonGroup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/buttonGroup" />
+
+            <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+                android:id="@+id/buttonGroup"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="2dp"
+                app:borderColor="@color/white"
+                app:borderWidth="2dp"
+                app:divider="@color/black"
+                app:dividerPadding="10dp"
+                app:dividerWidth="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:position="0"
+                app:radius="30dp"
+                app:ripple="true"
+                app:rippleColor="@color/gray"
+                app:selectedBackground="@color/gray">
+
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:id="@+id/othersButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    app:drawableGravity="top"
+                    app:selectedTextColor="@color/black"
+                    app:text="@string/tab_two_title"
+                    app:textColor="@color/black" />
+
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:id="@+id/oneButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    app:drawableGravity="top"
+                    app:selectedTextColor="@color/black"
+                    app:text="@string/tab_one_title"
+                    app:textColor="@color/black" />
+            </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+            <ImageView
+                android:id="@+id/addButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="15dp"
+                android:contentDescription="@null"
+                android:src="@drawable/my_list_help_accepted_nav_add"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonGroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/buttonGroup" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:layout_marginTop="90dp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/tab_bg"
+                app:tabIndicatorColor="@color/selected_tab_color"
+                app:tabSelectedTextColor="@color/selected_tab_color"
+                app:tabTextColor="@color/un_selected_tab_color" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

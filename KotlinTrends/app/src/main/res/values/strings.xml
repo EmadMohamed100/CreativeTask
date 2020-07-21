@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KotlinTrends</string>
+    <string name="search_repositories">search</string>
+</resources>

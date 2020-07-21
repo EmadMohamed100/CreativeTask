@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="SmallSp">
+
+    <data>
+
+        <variable
+            name="repositoryData"
+            type="com.app.kotlintrends.data.model.RepositoriesListResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/repo_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="emad mohamed"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@{repositoryData.name}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/repo_description_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="emad mohamed"
+            android:text="@{repositoryData.description}"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/repo_name_tv"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/repo_owner_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="emad mohamed"
+            android:text="@{repositoryData.fullName}"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/repo_description_tv"
+            android:textColor="@color/colorPrimaryDark" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

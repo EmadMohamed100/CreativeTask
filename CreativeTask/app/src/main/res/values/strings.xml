@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CreativeTask</string>
+    <string name="tab_one_title">"فزعاتى "</string>
+    <string name="tab_two_title">الاخرين</string>
+    <string name="waiting_tab_txt">قيد الانتظار</string>
+    <string name="accepted_tab_txt">تم القبول</string>
+    <string name="canceled_tab_txt">تم الالغاء</string>
+    <string name="need_car_txt">ابى اروح الهايبر وما عندى سياره ممكن حد يودينى</string>
+    <string name="time_txt">منذ ساعه</string>
+    <string name="type_txt">فزعة سيارة</string>
+    <string name="count_txt">2 فزعوا</string>
+    <string name="cancel_txt">الغاء</string>
+</resources>
